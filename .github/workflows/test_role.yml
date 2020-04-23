@@ -259,7 +259,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install Inspec
-      run: gem install inspec-bin -v 4.16.0
+      run: sudo gem install inspec-bin -v 4.16.0
 
     - name: Run container and mount Ansible role with it
       run: |
