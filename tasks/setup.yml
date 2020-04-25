@@ -1,0 +1,51 @@
+---
+# tasks setup for ansible-role-logrotate
+
+- name: Ensure logrotate.d directory is present
+  file:
+    path: "{{ logrotate_conf_dir }}"
+    owner: "{{ logrotate_config_owner }}"
+    group: "{{ logrotate_config_group }}"
+    state: directory
+
+- name: Configure logrotate
+  template:
+    src: "logrotate.j2"
+    dest: "{{ logrotate_conf_file }}"
+    owner: "{{ logrotate_config_owner }}"
+    group: "{{ logrotate_config_group }}"
+    mode: 0644
+
+# Tricky hack for synchronize templates and 
+# avoiding drift configuration
+- name: logrotate | tmp directory that will synchronize template
+  tempfile:
+    state: directory
+  changed_when: false
+  register: temp_file_path
+
+- name: logrotate | logrotate config files
+  template:
+    src: application.j2
+    dest: "{{ temp_file_path.path }}/{{ item.name }}"
+    owner: "{{ logrotate_config_owner }}"
+    group: "{{ logrotate_config_group }}"
+    mode: 0644
+  changed_when: false
+  with_items: "{{ logrotate_entries }}"
+  when: logrotate_entries is defined
+
+- name: logrotate | synchronize templates with logrotate directory
+  synchronize:
+    src: "{{ temp_file_path.path }}/"
+    dest: "{{ logrotate_conf_dir }}/"
+    delete: yes
+    checksum: yes
+    perms: no
+    times: no
+
+- name: logrotate | Delete the temporary directory
+  file:
+    path: "{{ temp_file_path.path }}"
+    state: absent
+  changed_when: false

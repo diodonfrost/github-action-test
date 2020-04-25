@@ -1,16 +1,31 @@
-# defaults file for ansible-role-java
+---
+# defaults file for ansible-role-logrotate
 
-# Specify java version to install
-# Depends on the operating system
-# Accepted value: 6,7,8,9,10,11,12,13,latest
-# latest take latest version of java supported by operating system
-# Default latest
-java_version: latest
+# How often to rotate logs, either daily, weekly or monthly.
+logrotate_frequency: weekly
 
-# Install java virtual machine
-# Default is true
-openjre_install: true
+# By default keep 4 weeks worth of backlogs
+logrotate_keep: 4
 
-# Install java virtual machine and development kit for java
-# Default is false
-openjdk_install: false
+# compress log files
+logrotate_compress: true
+
+# Set logrotate custom application configurations
+logrotate_entries: []
+# Example:
+# logrotate_entries:
+#   - name: nginx
+#     paths: /var/log/nginx/*.log
+#     options:
+#       - weekly
+#       - compress
+#   - name: rsyslog
+#     paths:
+#       - /var/log/kern.log
+#       - /var/log/message
+#       - /var/log/debug
+#     options:
+#       - weekly
+#       - rotate 4
+#       - compress
+#       - size 100M
