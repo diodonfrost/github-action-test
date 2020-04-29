@@ -17,15 +17,15 @@ jobs:
           - centos-7
 
     steps:
-    - name: Clone repository
-      uses: actions/checkout@v2
+      - name: Clone repository
+        uses: actions/checkout@v2
 
-    - name: Docker build
-      run: |
-        docker run -d diodonfrost/{{ matrix.distribution }}-ansible:latest
+      - name: Docker build
+        run: |
+          docker run -d diodonfrost/${{ matrix.distribution }}-ansible:latest
 
-        docker ps -a
+          docker ps -a
 
-    - name: Docker ls
-      run: |
-        docker ps -a
+      - name: Docker ls
+        run: |
+          docker ps -a
