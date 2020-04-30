@@ -1,6 +1,12 @@
 ---
-logrotate_package: logrotate
-logrotate_conf_file: /etc/logrotate.conf
-logrotate_conf_dir: /etc/logrotate.d
-logrotate_config_owner: root
-logrotate_config_group: root
+openjre_package: '{%- if java_version == "latest" -%}
+                     jre-openjdk-headless
+                  {%- else -%}
+                     jre{{ java_version }}-openjdk-headless
+                  {%- endif -%}'
+
+openjdk_package: '{%- if java_version == "latest" -%}
+                     jdk-openjdk
+                  {%- else -%}
+                     jdk{{ java_version }}-openjdk
+                  {%- endif -%}'

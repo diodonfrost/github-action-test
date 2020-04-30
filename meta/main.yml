@@ -1,8 +1,8 @@
 galaxy_info:
-  role_name: logrotate
+  role_name: java
   author: diodonfrost
   company: diodonfrost
-  description: Ansible role for manage logrotate
+  description: Ansible role for manage openjdk on a large number of os
   license: license Apache
 
   min_ansible_version: 2.4
@@ -13,6 +13,7 @@ galaxy_info:
         - 8
         - 7
         - 6
+        - 5
     - name: Fedora
       versions:
         - 31
@@ -30,7 +31,7 @@ galaxy_info:
         - squeeze
     - name: Ubuntu
       versions:
-        - disco dingo
+        - disco
         - bionic
         - xenial
         - trusty
@@ -52,10 +53,13 @@ galaxy_info:
     - name: ArchLinux
       versions:
         - any
-    - name: ClearLinux
+    - name: Alpine
       versions:
         - any
     - name: Gentoo
+      versions:
+        - any
+    - name: ClearLinux
       versions:
         - any
     - name: FreeBSD
@@ -63,10 +67,32 @@ galaxy_info:
         - 11.2
         - 10.4
         - 10.3
+    - name: OpenBSD
+      versions:
+        - 6.0
+        - 6.4
+    - name: Solaris
+      versions:
+        - 10
+        - 11.0
+    - name: MacOSX
+      versions:
+        - 10.11
+        - 10.12
+        - 10.13
+    - name: Windows
+      versions:
+        - 2016
+        - 2012R2
+        - 2008R2
 
   galaxy_tags:
     - system
     - packaging
-    - logrotate
+    - java
+    - oracle
+    - openjdk
+    - jre
+    - jdk
 
 dependencies: []
