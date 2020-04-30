@@ -69,7 +69,7 @@ jobs:
           - {distribution: "debian-8", playbook: "java-7"}
           - {distribution: "oraclelinux-8", playbook: "java-11"}
           - {distribution: "oraclelinux-7", playbook: "java-11"}
-          - {distribution: "oraclelinux-8", playbook: "java-7"}
+          - {distribution: "oraclelinux-7", playbook: "java-7"}
           - {distribution: "oraclelinux-6", playbook: "java-7"}
           - {distribution: "oraclelinux-6", playbook: "java-6"}
           - {distribution: "amazonlinux-2", playbook: "java-7"}
@@ -85,6 +85,11 @@ jobs:
           - {distribution: "archlinux-rolling", playbook: "java-10"}
           - {distribution: "archlinux-rolling", playbook: "java-7"}
           - {distribution: "alpine-rolling", playbook: "java-7"}
+        exclude:
+          - {distribution: "ubuntu-14.04", playbook: "java-8"}
+          - {distribution: "ubuntu-12.04", playbook: "java-8"}
+          - {distribution: "debian-10", playbook: "java-8"}
+          - {distribution: "debian-8", playbook: "java-8"}
 
     steps:
       - name: Checkout repository
