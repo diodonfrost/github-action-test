@@ -1,0 +1,16 @@
+name: galaxy
+
+on: [push]
+
+jobs:
+  release:
+    name: Test creds
+    runs-on: ubuntu-18.04
+    needs: test
+  steps:
+    - uses: actions/checkout@v2
+    - name: Test run
+      run: |
+        ifconig -a
+        pwd
+        ls -l
