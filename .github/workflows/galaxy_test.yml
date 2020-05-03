@@ -2,8 +2,7 @@ name: galaxy
 
 on:
   push:
-    tags:
-    - '*'
+  pull_request:
 
 jobs:
   release:
