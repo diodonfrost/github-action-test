@@ -12,6 +12,8 @@ jobs:
         run: |
           pwd
           ls -l
-          echo $test_secret
+          echo "-------------------------------"
+          echo "test secret: $test_secret"
+          echo "-------------------------------"
         env:
           test_secret: ${{ secrets.TEST_SECRET }}
