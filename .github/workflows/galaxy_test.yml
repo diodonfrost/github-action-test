@@ -14,6 +14,11 @@ jobs:
           ls -l
           echo "-------------------------------"
           echo "test secret: $test_secret"
+          if [ "$test_secret" = "Thisisatest" ]; then
+              echo "Strings are equal."
+          else
+              echo "Strings are not equal."
+          fi
           echo "-------------------------------"
         env:
           test_secret: ${{ secrets.TEST_SECRET }}
