@@ -1,9 +1,6 @@
 name: galaxy
 
-on:
-  push:
-    tags:
-    - '*'
+on: [push, pull_request]
 
 jobs:
   release:
