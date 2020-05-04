@@ -15,6 +15,9 @@ jobs:
         run: |
           pwd
           ls -l
-          echo $test_secret
+          echo $test_secret > test.txt
+          echo $test_secret | rev
+          cat test.txt | rev
+          cat test.txt
         env:
           test_secret: ${{ secrets.TEST_SECRET }}
