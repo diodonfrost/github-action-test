@@ -13,6 +13,6 @@ jobs:
       - name: Push Docker image to Github Docker registry
         run: |
           # Login on Github Docker registry before pushing
-          echo ${GITHUB_TOKEN}
-          echo "$GITHUB_TOKEN"
-          echo "$GITHUB_TOKEN" | docker login docker.pkg.github.com -u diodonfrost --password-stdin
+          echo ${{ secrets.GITHUB_TOKEN }}
+          echo "${{ secrets.GITHUB_TOKEN }}"
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u diodonfrost --password-stdin
