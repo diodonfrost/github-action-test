@@ -15,4 +15,4 @@ jobs:
           # Login on Github Docker registry before pushing
           echo ${GITHUB_TOKEN}
           echo "$GITHUB_TOKEN"
-          echo "$GITHUB_TOKEN" | docker login -u diodonfrost --password-stdin docker.pkg.github.com
+          echo "$GITHUB_TOKEN" | docker login docker.pkg.github.com -u diodonfrost --password-stdin
