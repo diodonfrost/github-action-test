@@ -1,9 +1,8 @@
-name: galaxy
+name: test
 
 on:
   push:
-    tags:
-    - '*'
+  pull_request:
 
 jobs:
   release:
