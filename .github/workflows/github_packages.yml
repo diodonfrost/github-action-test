@@ -1,0 +1,19 @@
+name: galaxy
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  release:
+    name: Test creds
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Push Docker image to Github Docker registry
+        run: |
+          # Login on Github Docker registry before pushing
+          echo ${GITHUB_TOKEN}
+          echo "$GITHUB_TOKEN"
+          echo "$GITHUB_TOKEN" | docker login -u diodonfrost --password-stdin docker.pkg.github.com
