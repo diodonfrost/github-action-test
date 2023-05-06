@@ -1,14 +1,5 @@
 ---
-# Define java version to use
-openjre_package: '{%- if java_version == "latest" -%}
-                     java/openjdk8-jre
-                  {%- else -%}
-                     java/openjdk{{ java_version }}-jre
-                  {%- endif -%}'
-
-# Define java version to use
-openjdk_package: '{%- if java_version == "latest" -%}
-                     java/openjdk8
-                  {%- else -%}
-                     java/openjdk{{ java_version }}
-                  {%- endif -%}'
+# vars file for terraform in FreeBSD system
+terraform_pkg_url: "https://releases.hashicorp.com/terraform/{{ terraform_version_to_install }}/terraform_{{ terraform_version_to_install }}_{{ os_type }}_{{ base_arch[ansible_architecture] | default('amd64') }}.zip"
+terraform_default_path: /usr/local/bin/
+os_type: freebsd

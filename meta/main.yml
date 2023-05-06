@@ -1,23 +1,19 @@
 galaxy_info:
-  role_name: githubaction
+  role_name: terraform
   author: diodonfrost
   company: diodonfrost
-  description: Test Github Action badge with Ansible Galaxy
+  description: Ansible role for install the latest version of Terraform
   license: license Apache
 
-  min_ansible_version: 2.4
+  min_ansible_version: 2.5
 
   platforms:
     - name: EL
       versions:
         - 8
         - 7
-        - 6
-        - 5
     - name: Fedora
       versions:
-        - 31
-        - 30
         - 29
         - 28
         - 27
@@ -31,25 +27,56 @@ galaxy_info:
         - squeeze
     - name: Ubuntu
       versions:
-        - disco
         - bionic
         - xenial
-        - trusty
-        - precise
         - trusty
     - name: Amazon
       versions:
         - 2017.12
         - 2016.03
-        - 2013.09
+    - name: opensuse
+      versions:
+        - 15.2
+        - 15.1
+        - 15.0
+        - 42.2
+        - 42.1
+    - name: ArchLinux
+      versions:
+        - any
+    - name: Alpine
+      versions:
+        - any
+    - name: Gentoo
+      versions:
+        - any
+    - name: ClearLinux
+      versions:
+        - any
+    - name: FreeBSD
+      versions:
+        - 11.2
+        - 10.4
+        - 10.3
+    - name: OpenBSD
+      versions:
+        - 6.0
+        - 6.4
+    - name: MacOSX
+      versions:
+        - 10.11
+        - 10.12
+        - 10.13
+    - name: Windows
+      versions:
+        - 2016
+        - 2012R2
 
   galaxy_tags:
     - system
     - packaging
-    - java
-    - oracle
-    - openjdk
-    - jre
-    - jdk
+    - cloud
+    - terraform
+    - hashicorp
 
 dependencies: []
